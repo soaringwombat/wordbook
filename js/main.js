@@ -1,10 +1,18 @@
 // 初期の単語リスト（テストデータとして使用）
-const wordList = [
+const wordList = [];
+
+// wordListが初期化されていない場合のみ、初期値を設定する
+let isWordListInitialized = false;
+if (wordList.length > 0) {
+  isWordListInitialized = true;
+} else {
+  wordList = [
     { id: 1, word: 'apple', meaning: 'りんご' },
     { id: 2, word: 'orange', meaning: 'オレンジ' },
     { id: 3, word: 'grape', meaning: 'ぶどう' },
     { id: 4, word: 'banana', meaning: 'バナナ' }
   ];
+}
 
 // ページが読み込まれたときに単語リストを表示する関数
 function displayWordList() {
@@ -101,20 +109,32 @@ function remove(id) {
     }
 }
 
-// 単語リストをCookieに保存
-saveWordListToCookie();
+// 単語リストを保存する関数
+function saveWordList() {
+    // wordListが初期化されていない場合に初期値を設定する
+    if (!isWordListInitialized) {
+      wordList = [
+        { id: 1, word: 'apple', meaning: 'りんご' },
+        { id: 2, word: 'orange', meaning: 'オレンジ' },
+        { id: 3, word: 'grape', meaning: 'ぶどう' },
+        { id: 4, word: 'banana', meaning: 'バナナ' }
+      ];
+    }
+  
+    // 単語リストをCookieに保存する
+    saveWordListToCookie();
+  
+    // 単語リストを表示する
+    displayWordList();
+}
 
 // ページが読み込まれたときに単語リストを復元
 restoreWordListFromCookie();
 
-// ページが読み込まれたときに単語リストを表示
-displayWordList();// 単語リストをCookieに保存する関数
+saveWordList();
 
-// 単語リストをCookieに保存
-saveWordListToCookie();
+// // 単語リストをCookieに保存
+// saveWordListToCookie();
 
-// ページが読み込まれたときに単語リストを復元
-restoreWordListFromCookie();
-
-// ページが読み込まれたときに単語リストを表示
-displayWordList();
+// // ページが読み込まれたときに単語リストを表示
+// displayWordList();
