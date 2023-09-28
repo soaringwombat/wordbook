@@ -55,6 +55,7 @@ function restoreWordListFromCookie() {
     restoredWordList = JSON.parse(json);
   }
   wordList = restoredWordList;
+  displayWordList(); // 単語リストを再表示
 }
   
 // 追加ボタンがクリックされたときに単語を追加
@@ -65,9 +66,9 @@ function addWord() {
     if (newWord && newMeaning) {
         const newId = wordList.length + 1;
         wordList.push({ id: newId, word: newWord, meaning: newMeaning });
-        displayWordList();
     }
     saveWordListToCookie();
+    displayWordList(); // 単語リストを再表示
 }
   
 // 編集ボタンがクリックされたときに単語を編集
@@ -77,9 +78,9 @@ function edit(number) {
     if (word && meaning) {
         wordList[number - 1].word = word;
         wordList[number - 1].meaning = meaning;
-        displayWordList();
     }
     saveWordListToCookie();
+    displayWordList();
 }
   
 // 削除ボタンがクリックされたときに単語を削除
@@ -93,8 +94,8 @@ function remove(id) {
             wordList[i].id = i + 1;
         }
         saveWordListToCookie();
-        displayWordList(); // 単語リストを再表示
     }
+    displayWordList(); // 単語リストを再表示
 }
 
 displayWordList(); // ページが読み込まれたときに単語リストを表示
