@@ -63,6 +63,7 @@ function restoreWordListFromCookie() {
     ]
   }
   wordList = restoredWordList;
+  saveWordListToCookie();
   displayWordList(); // 単語リストを再表示
 }
   

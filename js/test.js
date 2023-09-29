@@ -10,7 +10,7 @@ function arrayShuffle(array) {
   }
   
   // テストを開始する
-  startTest(){
+  function startTest(){
     let numbers = [];
     for (let i = 0; i < wordList.length; i++) {
       numbers.push(i);
