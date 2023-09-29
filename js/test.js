@@ -9,13 +9,8 @@ function arrayShuffle(array) {
     }
   }
   
-// テストを開始するボタンを作成する
-const button = document.createElement("button");
-button.textContent = "テストを開始する";
-document.body.appendChild(button);
-  
-  // テストを開始するボタンがクリックされたときの処理
-  startButton.addEventListener("click", () => {
+  // テストを開始する
+  startTest(){
     let numbers = [];
     for (let i = 0; i < wordList.length; i++) {
       numbers.push(i);
@@ -35,4 +30,4 @@ document.body.appendChild(button);
         alert(`不正解！正解は「${answer}」です。`);
       }
     }
-  });
+  }

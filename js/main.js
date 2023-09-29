@@ -54,6 +54,14 @@ function restoreWordListFromCookie() {
     const json = cookie.split('=')[1];
     restoredWordList = JSON.parse(json);
   }
+  // 例を追加
+  else{
+    restoredWordList = [
+        { id: 1, word: 'apple', meaning: 'りんご' },
+        { id: 2, word: 'banana', meaning: 'バナナ' },
+        { id: 3, word: 'cherry', meaning: 'さくらんぼ' }
+    ]
+  }
   wordList = restoredWordList;
   displayWordList(); // 単語リストを再表示
 }
